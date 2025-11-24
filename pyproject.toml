@@ -1,0 +1,33 @@
+[project]
+name = "mle-vroom"
+version = "0.1.0"
+description = "A barebones maximum likelihood estimation framework in Python."
+authors = [{ name="Adam Bauer", email="ambauer@uchicago.edu" }]
+requires-python = ">=3.10"
+dependencies = [
+    "numpy",
+    "scipy",
+    "numba",
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.semantic_release]
+version_variable = "src/mle-vroom/__init__.py:__version__"
+version_toml = ["pyproject.toml:project.version"]
+upload_to_pypi = true
+upload_to_release = true
+build_command = "python -m build"
+branch = "main"
+
+# commmit information
+commit_message = "chore(release): {version}"
+changelog_file = "CHANGELOG.md"
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+version = "0.1.0"
+version_files = ["src/mle_package/__init__.py"]
+tag_format = "v$version"
