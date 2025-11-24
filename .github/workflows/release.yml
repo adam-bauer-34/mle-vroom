@@ -2,12 +2,18 @@ name: Release
 
 on:
   push:
+    branches: ["main", "dev", "feat", "hotfix"]
+  pull_request:
     branches: ["main"]
 
 jobs:
   release:
     name: Semantic Release
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
 
     steps:
       - name: Checkout repo
