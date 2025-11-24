@@ -14,6 +14,7 @@ jobs:
       contents: write
       issues: write
       pull-requests: write
+      id-token: write
 
     steps:
       - name: Checkout repo
@@ -33,7 +34,7 @@ jobs:
           pip install build
 
       - name: Run Semantic Release
-        env:
-          PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: semantic-release publish
+        uses: python-semantic-release/python-semantic-release@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          pypi_token: ${{ secrets.PYPI_TOKEN }}

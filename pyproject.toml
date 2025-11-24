@@ -14,18 +14,16 @@ dependencies = [
 requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
-[tool.semantic_release]
-version = "src/mle-vroom/__init__.py:__version__"
+[tool.semantic_release.remote]
+name = "origin"
+type = "github"
+version_variable = "src/mle-vroom/__init__.py:__version__"
 tag_format = "v{verison}"
 version_toml = ["pyproject.toml:project.version"]
 upload_to_pypi = false
 upload_to_release = true
 build_command = "python -m build"
 branch = "main"
-
-# commmit information
-commit_message = "chore(release): {version}"
-changelog_file = "CHANGELOG.md"
 
 [tool.commitizen]
 name = "cz_conventional_commits"
