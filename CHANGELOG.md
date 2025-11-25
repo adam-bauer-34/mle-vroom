@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/adam-bauer-34/mle-vroom/compare/v1.0.0...v1.0.1) (2025-11-25)
+
+
+### Bug Fixes
+
+* **readme.md:** extended the documentation ([318adb3](https://github.com/adam-bauer-34/mle-vroom/commit/318adb36a28f359821d0b86d351a94aae08db501))
+
 # CHANGELOG
 
 <!-- version list -->
