@@ -18,7 +18,7 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0  # REQUIRED for semantic-release
 
@@ -33,8 +33,11 @@ jobs:
           pip install python-semantic-release
           pip install build
 
-      - name: Run Semantic Release
-        uses: python-semantic-release/python-semantic-release@master
+      - name: Semantic Release
+        uses: cycjimmy/semantic-release-action@v6
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          pypi_token: ${{ secrets.PYPI_TOKEN }}
+          semantic_version: 19.0.5  # It is recommended to specify a version range
+                                    # for semantic-release when using
+                                    # semantic-release-action lower than @v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
